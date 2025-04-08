@@ -11,21 +11,15 @@ public class SeparationBehavior : SteeringBehavior
         Vector3 separationForce = Vector3.zero;
         int neighborCount = 0;
         
-        // Find all nearby troops
         Collider[] neighbors = Physics.OverlapSphere(transform.position, separationRadius, troopLayer);
         
         foreach (Collider neighbor in neighbors)
         {
-            // Skip self
             if (neighbor.gameObject == gameObject) continue;
-            
-            // Calculate direction away from neighbor
             Vector3 direction = transform.position - neighbor.transform.position;
             float distance = direction.magnitude;
-            
             if (distance > 0)
             {
-                // Scale by inverse square of distance
                 separationForce += direction.normalized / (distance * distance);
                 neighborCount++;
             }

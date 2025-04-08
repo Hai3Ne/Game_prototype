@@ -14,10 +14,8 @@ public class SeekBehavior : SteeringBehavior
             ? target.position 
             : targetPosition;
         
-        // Calculate desired velocity
         Vector3 desiredVelocity = (desiredPosition - transform.position).normalized * troop.maxSpeed;
         
-        // Calculate steering force (desired velocity - current velocity)
         return desiredVelocity - troop.Velocity;
     }
     
