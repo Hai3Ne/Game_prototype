@@ -11,12 +11,12 @@ TagManager:
   - 
   - Water
   - UI
-  - Troops
-  - Enemies
   - 
   - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - Ground
+  - Obstacle
   - 
   - 
   - 

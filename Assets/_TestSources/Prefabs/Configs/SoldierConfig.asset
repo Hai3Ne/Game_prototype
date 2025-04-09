@@ -1,0 +1,227 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10b90cc1dce64429b8dae664eb7cf667, type: 3}
+  m_Name: SoldierConfig
+  m_EditorClassIdentifier: 
+  troopName: Troop
+  description: A basic troop
+  icon: {fileID: 0}
+  prefab: {fileID: 0}
+  maxHealth: 100
+  attackPower: 10
+  attackRange: 2
+  attackSpeed: 1
+  moveSpeed: 5
+  rotationSpeed: 10
+  maxSteeringForce: 10
+  behaviors:
+  - name: Seek
+    BehaviorType: 0
+    Weight: 0.055
+    Probability: 0.177
+    directionVectors:
+    - direction: {x: -0.9238795, y: 0, z: 0.38268343}
+      probability: 0.125
+    - direction: {x: -0.70710677, y: 0, z: 0.70710677}
+      probability: 0.125
+    - direction: {x: -0.38268346, y: 0, z: 0.9238795}
+      probability: 0.125
+    - direction: {x: 0, y: 0, z: 1}
+      probability: 0.125
+    - direction: {x: 0.38268346, y: 0, z: 0.9238795}
+      probability: 0.125
+    - direction: {x: 0.70710677, y: 0, z: 0.70710677}
+      probability: 0.125
+    - direction: {x: 0.9238795, y: 0, z: 0.38268343}
+      probability: 0.125
+    - direction: {x: 0.988281, y: 0, z: -0.1526454}
+      probability: 0.5
+    - direction: {x: 0.9901669, y: 0, z: -0.13989113}
+      probability: 0.5
+    - direction: {x: 0.9999551, y: 0, z: -0.009478248}
+      probability: 0.5
+    - direction: {x: 0.99011075, y: 0, z: 0.14028817}
+      probability: 0.5
+    - direction: {x: -0.9683671, y: 0, z: 0.24952969}
+      probability: 0.5
+    - direction: {x: -0.9683671, y: 0, z: 0.24952969}
+      probability: 0.5
+    - direction: {x: -0.9121469, y: 0, z: -0.40986338}
+      probability: 0.5
+    - direction: {x: -0.9995082, y: 0, z: 0.03135712}
+      probability: 0.5
+    - direction: {x: 0.80791324, y: 0, z: -0.5893014}
+      probability: 0.5
+    - direction: {x: 39.04, y: 0, z: 0.44794777}
+      probability: 0.5
+    - direction: {x: -0.7188197, y: 0, z: -0.6951965}
+      probability: 0.5
+    ArrivalRadius: 1
+    SlowingRadius: 0
+    NeighborRadius: 0
+    SeparationRadius: 0
+    LookAheadDistance: 0
+    ObstacleLayer:
+      serializedVersion: 2
+      m_Bits: 0
+  - name: FleeBehavior
+    BehaviorType: 1
+    Weight: 0.9
+    Probability: 0.03
+    directionVectors:
+    - direction: {x: 0, y: 0, z: 0}
+      probability: 0
+    - direction: {x: 0, y: 0, z: 0}
+      probability: 0
+    - direction: {x: 0, y: 0, z: 0}
+      probability: 0
+    - direction: {x: 0, y: 0, z: 0}
+      probability: 0
+    - direction: {x: 0, y: 0, z: 0}
+      probability: 0
+    - direction: {x: 0, y: 0, z: 0}
+      probability: 0
+    - direction: {x: 0, y: 0, z: 0}
+      probability: 0
+    - direction: {x: 0, y: 0, z: 0}
+      probability: 0
+    ArrivalRadius: 1
+    SlowingRadius: 5
+    NeighborRadius: 5
+    SeparationRadius: 2
+    LookAheadDistance: 5
+    ObstacleLayer:
+      serializedVersion: 2
+      m_Bits: 0
+  - name: ArrivalBehavior
+    BehaviorType: 2
+    Weight: 0.5
+    Probability: 0.5
+    directionVectors: []
+    ArrivalRadius: 1
+    SlowingRadius: 5
+    NeighborRadius: 5
+    SeparationRadius: 2
+    LookAheadDistance: 5
+    ObstacleLayer:
+      serializedVersion: 2
+      m_Bits: 0
+  - name: SeparationBehavior
+    BehaviorType: 3
+    Weight: 0.5
+    Probability: 0.5
+    directionVectors: []
+    ArrivalRadius: 1
+    SlowingRadius: 5
+    NeighborRadius: 5
+    SeparationRadius: 2
+    LookAheadDistance: 5
+    ObstacleLayer:
+      serializedVersion: 2
+      m_Bits: 0
+  - name: CohesionBehavior
+    BehaviorType: 4
+    Weight: 0.5
+    Probability: 0.5
+    directionVectors: []
+    ArrivalRadius: 1
+    SlowingRadius: 5
+    NeighborRadius: 5
+    SeparationRadius: 2
+    LookAheadDistance: 5
+    ObstacleLayer:
+      serializedVersion: 2
+      m_Bits: 0
+  - name: AlignmentBehavior
+    BehaviorType: 5
+    Weight: 0.5
+    Probability: 0.5
+    directionVectors: []
+    ArrivalRadius: 1
+    SlowingRadius: 5
+    NeighborRadius: 5
+    SeparationRadius: 2
+    LookAheadDistance: 5
+    ObstacleLayer:
+      serializedVersion: 2
+      m_Bits: 0
+  - name: ObstacleAvoidanceBehavior
+    BehaviorType: 6
+    Weight: 0.5
+    Probability: 0.5
+    directionVectors: []
+    ArrivalRadius: 1
+    SlowingRadius: 5
+    NeighborRadius: 5
+    SeparationRadius: 2
+    LookAheadDistance: 5
+    ObstacleLayer:
+      serializedVersion: 2
+      m_Bits: 0
+  - name: PathFollowingBehavior
+    BehaviorType: 7
+    Weight: 0.5
+    Probability: 0.5
+    directionVectors: []
+    ArrivalRadius: 1
+    SlowingRadius: 5
+    NeighborRadius: 5
+    SeparationRadius: 2
+    LookAheadDistance: 5
+    ObstacleLayer:
+      serializedVersion: 2
+      m_Bits: 0
+  - name: AttackBehavior
+    BehaviorType: 8
+    Weight: 1
+    Probability: 0.95
+    directionVectors:
+    - direction: {x: 0, y: 0, z: 0}
+      probability: 0
+    - direction: {x: 0, y: 0, z: 0}
+      probability: 0
+    - direction: {x: 0, y: 0, z: 0}
+      probability: 0
+    ArrivalRadius: 1
+    SlowingRadius: 5
+    NeighborRadius: 5
+    SeparationRadius: 2
+    LookAheadDistance: 5
+    ObstacleLayer:
+      serializedVersion: 2
+      m_Bits: 0
+  - name: DefenseBehavior
+    BehaviorType: 9
+    Weight: 0.5
+    Probability: 0.5
+    directionVectors: []
+    ArrivalRadius: 1
+    SlowingRadius: 5
+    NeighborRadius: 5
+    SeparationRadius: 2
+    LookAheadDistance: 5
+    ObstacleLayer:
+      serializedVersion: 2
+      m_Bits: 0
+  - name: FearBehavior
+    BehaviorType: 10
+    Weight: 0.8
+    Probability: 0.02
+    directionVectors: []
+    ArrivalRadius: 1
+    SlowingRadius: 5
+    NeighborRadius: 5
+    SeparationRadius: 2
+    LookAheadDistance: 5
+    ObstacleLayer:
+      serializedVersion: 2
+      m_Bits: 0
