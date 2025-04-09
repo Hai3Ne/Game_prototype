@@ -18,14 +18,9 @@ namespace IslandDefense.Troops.Editor
         // Reference to vector window
         private VectorEditorWindow vectorWindow;
         
-        // Vector generation options
-        private int numberOfVectors = 8;
-        private float vectorSpread = 180f;
-        private float startAngle = -90f;
-        
         // Tab
         private int currentTab = 0;
-        private string[] tabNames = { "Edit", "Save/Load", "Options" };
+        private string[] tabNames = { "Edit", "Save/Load" };
         
         // Save folder path
         private string saveFolder = "Assets/VectorPresets";
@@ -33,7 +28,7 @@ namespace IslandDefense.Troops.Editor
         private List<string> availablePresets = new List<string>();
         private Vector2 presetScrollPosition;
         
-        [MenuItem("Island Defense/Improved Behavior Editor")]
+        [MenuItem("BN_2/Improved Behavior Editor")]
         public static void ShowWindow()
         {
             GetWindow<ImprovedBehaviorEditor>("Improved Behavior Editor");
@@ -98,9 +93,6 @@ namespace IslandDefense.Troops.Editor
                     break;
                 case 1: // Save/Load Tab
                     DrawSaveLoadTab();
-                    break;
-                case 2: // Options Tab
-                    DrawOptionsTab();
                     break;
             }
             
@@ -233,24 +225,13 @@ namespace IslandDefense.Troops.Editor
                 RefreshPresetList();
             }
             
-            EditorGUILayout.EndVertical();
-        }
-        
-        private void DrawOptionsTab()
-        {
-            EditorGUILayout.BeginVertical(EditorStyles.helpBox);
-            EditorGUILayout.LabelField("Display Options", EditorStyles.boldLabel);
-            
-            // Display options moved to VectorEditorWindow
-            EditorGUILayout.HelpBox("Vector display options are available in the Vector Editor window.", MessageType.Info);
-            
             EditorGUILayout.Space();
             
             // Save options
             EditorGUILayout.LabelField("Save Options", EditorStyles.boldLabel);
             
             EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField("Save Folder:", GUILayout.Width(150));
+            EditorGUILayout.LabelField("Save Folder:", GUILayout.Width(100));
             
             EditorGUILayout.LabelField(saveFolder);
             
@@ -276,38 +257,6 @@ namespace IslandDefense.Troops.Editor
             }
             
             EditorGUILayout.EndHorizontal();
-            
-            EditorGUILayout.EndVertical();
-            
-            EditorGUILayout.Space();
-            
-            // Vector creation tools
-            EditorGUILayout.BeginVertical(EditorStyles.helpBox);
-            EditorGUILayout.LabelField("Vector Generation Tools", EditorStyles.boldLabel);
-            
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField("Number of Vectors:", GUILayout.Width(150));
-            numberOfVectors = EditorGUILayout.IntSlider(numberOfVectors, 1, 16);
-            EditorGUILayout.EndHorizontal();
-            
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField("Spread Angle:", GUILayout.Width(150));
-            vectorSpread = EditorGUILayout.Slider(vectorSpread, 10f, 360f);
-            EditorGUILayout.EndHorizontal();
-            
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField("Start Angle:", GUILayout.Width(150));
-            startAngle = EditorGUILayout.Slider(startAngle, -180f, 180f);
-            EditorGUILayout.EndHorizontal();
-            
-            if (GUILayout.Button("Generate Even Vectors"))
-            {
-                if (selectedBehaviorIndex >= 0 && selectedBehaviorIndex < selectedConfig.Behaviors.Count)
-                {
-                    GenerateEvenVectors(selectedConfig.Behaviors[selectedBehaviorIndex]);
-                    UpdateVectorWindow();
-                }
-            }
             
             EditorGUILayout.EndVertical();
         }
@@ -522,7 +471,7 @@ namespace IslandDefense.Troops.Editor
             EditorUtility.SetDirty(selectedConfig);
             
             // Open vector window
-            UpdateVectorWindow();
+            OpenVectorWindow();
         }
         
         private void DrawSelectedBehavior()
@@ -546,24 +495,6 @@ namespace IslandDefense.Troops.Editor
             
             behavior.Weight = EditorGUILayout.Slider("Weight", behavior.Weight, 0, 1);
             behavior.Probability = EditorGUILayout.Slider("Probability", behavior.Probability, 0, 1);
-            
-            // Additional parameters based on behavior type
-            switch (behavior.BehaviorType)
-            {
-                case BehaviorType.Seek:
-                case BehaviorType.Flee:
-                case BehaviorType.Arrival:
-                    behavior.ArrivalRadius = EditorGUILayout.FloatField("Arrival Radius", behavior.ArrivalRadius);
-                    behavior.SlowingRadius = EditorGUILayout.FloatField("Slowing Radius", behavior.SlowingRadius);
-                    break;
-                
-                case BehaviorType.Separation:
-                case BehaviorType.Cohesion:
-                case BehaviorType.Alignment:
-                    behavior.NeighborRadius = EditorGUILayout.FloatField("Neighbor Radius", behavior.NeighborRadius);
-                    behavior.SeparationRadius = EditorGUILayout.FloatField("Separation Radius", behavior.SeparationRadius);
-                    break;
-            }
             
             EditorGUILayout.Space();
             
@@ -697,52 +628,6 @@ namespace IslandDefense.Troops.Editor
             // Mark config as modified
             EditorUtility.SetDirty(selectedConfig);
             Repaint();
-        }
-        
-        private void GenerateEvenVectors(BehaviorConfig behavior)
-        {
-            if (behavior.directionVectors == null)
-            {
-                behavior.directionVectors = new List<DirectionVectorConfig>();
-            }
-            
-            // Confirm clearing existing vectors if any
-            if (behavior.directionVectors.Count > 0)
-            {
-                bool clear = EditorUtility.DisplayDialog(
-                    "Clear Existing Vectors", 
-                    "Do you want to clear existing vectors before generating new ones?", 
-                    "Yes", "No");
-                    
-                if (clear)
-                {
-                    behavior.directionVectors.Clear();
-                }
-            }
-            
-            // Create evenly distributed vectors
-            float angleStep = vectorSpread / numberOfVectors;
-            float currentAngle = startAngle;
-            float equalProbability = 1.0f / numberOfVectors;
-            
-            for (int i = 0; i < numberOfVectors; i++)
-            {
-                // Convert angle to vector
-                float radians = currentAngle * Mathf.Deg2Rad;
-                Vector3 direction = new Vector3(Mathf.Sin(radians), 0, Mathf.Cos(radians));
-                
-                DirectionVectorConfig newVector = new DirectionVectorConfig
-                {
-                    direction = direction.normalized,
-                    probability = equalProbability
-                };
-                
-                behavior.directionVectors.Add(newVector);
-                currentAngle += angleStep;
-            }
-            
-            selectedVectorIndex = 0;
-            EditorUtility.SetDirty(selectedConfig);
         }
         
         // Save vector preset

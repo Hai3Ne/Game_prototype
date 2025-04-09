@@ -28,13 +28,7 @@ MonoBehaviour:
     BehaviorType: 0
     Weight: 1
     Probability: 0.5
-    directionVectors:
-    - direction: {x: 0, y: 0, z: 1}
-      probability: 0.5
-    - direction: {x: 0.5895509, y: 0, z: -0.8077312}
-      probability: 0.5
-    - direction: {x: 0.96639884, y: 0, z: -0.25704727}
-      probability: 0.5
+    directionVectors: []
     ArrivalRadius: 1
     SlowingRadius: 5
     NeighborRadius: 5
@@ -48,8 +42,20 @@ MonoBehaviour:
     Weight: 1
     Probability: 0.5
     directionVectors:
-    - direction: {x: 0, y: 0, z: 1}
-      probability: 1
+    - direction: {x: -1, y: 0, z: -0.00000004371139}
+      probability: 0.14285715
+    - direction: {x: -0.90096885, y: 0, z: 0.43388376}
+      probability: 0.14285715
+    - direction: {x: -0.6234898, y: 0, z: 0.7818315}
+      probability: 0.14285715
+    - direction: {x: -0.2225209, y: 0, z: 0.9749279}
+      probability: 0.14285715
+    - direction: {x: 0.22252093, y: 0, z: 0.9749279}
+      probability: 0.14285715
+    - direction: {x: 0.6234898, y: 0, z: 0.7818315}
+      probability: 0.14285715
+    - direction: {x: 0.90096885, y: 0, z: 0.43388376}
+      probability: 0.14285715
     ArrivalRadius: 1
     SlowingRadius: 5
     NeighborRadius: 5

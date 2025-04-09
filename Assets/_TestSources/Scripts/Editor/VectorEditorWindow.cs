@@ -23,13 +23,22 @@ namespace IslandDefense.Troops.Editor
         private int _draggingVectorIndex = -1;
         
         // Window size
-        private readonly Vector2 _minWindowSize = new Vector2(600, 600);
+        private readonly Vector2 _minWindowSize = new Vector2(700, 600);
         
         // Update state
         private bool _needsRepaint = false;
         
         // Scroll position for vector list
         private Vector2 _vectorListScrollPosition;
+        
+        // Options tab
+        private int _currentTab = 0;
+        private readonly string[] _tabNames = { "Vectors", "Options" };
+        
+        // Vector generation options
+        private int _numberOfVectors = 8;
+        private float _vectorSpread = 180f;
+        private float _startAngle = -90f;
         
         // Callback delegates
         private System.Action<BehaviorConfig, int> _onVectorSelected;
@@ -85,9 +94,36 @@ namespace IslandDefense.Troops.Editor
             
             // Title
             EditorGUILayout.BeginVertical(EditorStyles.helpBox);
-            EditorGUILayout.LabelField($"Editing Vectors for: {_currentBehavior.name}", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField($"Editing Vectors for: {_currentBehavior.name} ({_currentBehavior.BehaviorType})", EditorStyles.boldLabel);
             EditorGUILayout.EndVertical();
             
+            // Tab selection
+            _currentTab = GUILayout.Toolbar(_currentTab, _tabNames, EditorStyles.toolbarButton);
+            
+            EditorGUILayout.Space();
+            
+            // Tab content
+            switch (_currentTab)
+            {
+                case 0: // Vectors tab
+                    DrawVectorsTab();
+                    break;
+                case 1: // Options tab
+                    DrawOptionsTab();
+                    break;
+            }
+            
+            // Apply changes
+            if (GUI.changed || _needsRepaint)
+            {
+                _needsRepaint = false;
+                _onBehaviorModified?.Invoke(_currentBehavior);
+                Repaint();
+            }
+        }
+        
+        private void DrawVectorsTab()
+        {
             // Split layout into two columns
             EditorGUILayout.BeginHorizontal();
             
@@ -96,7 +132,7 @@ namespace IslandDefense.Troops.Editor
             
             // Display options
             EditorGUILayout.BeginVertical(EditorStyles.helpBox);
-            EditorGUILayout.LabelField("Display Options", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField("Display Settings", EditorStyles.boldLabel);
             
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Circle Size:", GUILayout.Width(150));
@@ -226,14 +262,115 @@ namespace IslandDefense.Troops.Editor
             EditorGUILayout.EndVertical();
             
             EditorGUILayout.EndHorizontal();
+        }
+        
+        private void DrawOptionsTab()
+        {
+            EditorGUILayout.BeginVertical();
             
-            // Apply changes
-            if (GUI.changed || _needsRepaint)
+            // Vector generation settings
+            EditorGUILayout.BeginVertical(EditorStyles.helpBox);
+            EditorGUILayout.LabelField("Vector Generation Settings", EditorStyles.boldLabel);
+            
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Number of Vectors:", GUILayout.Width(150));
+            _numberOfVectors = EditorGUILayout.IntSlider(_numberOfVectors, 1, 16);
+            EditorGUILayout.EndHorizontal();
+            
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Spread Angle:", GUILayout.Width(150));
+            _vectorSpread = EditorGUILayout.Slider(_vectorSpread, 10f, 360f);
+            EditorGUILayout.EndHorizontal();
+            
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Start Angle:", GUILayout.Width(150));
+            _startAngle = EditorGUILayout.Slider(_startAngle, -180f, 180f);
+            EditorGUILayout.EndHorizontal();
+            
+            EditorGUILayout.Space();
+            
+            // Generation buttons
+            EditorGUILayout.BeginHorizontal();
+            
+            if (GUILayout.Button("Generate Even Vectors", GUILayout.Height(30)))
             {
-                _needsRepaint = false;
-                _onBehaviorModified?.Invoke(_currentBehavior);
-                Repaint();
+                GenerateEvenVectors();
             }
+            
+            EditorGUILayout.EndHorizontal();
+            
+            // Generation patterns
+            EditorGUILayout.Space();
+            EditorGUILayout.LabelField("Quick Patterns", EditorStyles.boldLabel);
+            
+            EditorGUILayout.BeginHorizontal();
+            
+            if (GUILayout.Button("Forward Only", GUILayout.Height(25)))
+            {
+                GenerateForwardVector();
+            }
+            
+            if (GUILayout.Button("Forward Fan", GUILayout.Height(25)))
+            {
+                GenerateForwardFan();
+            }
+            
+            EditorGUILayout.EndHorizontal();
+            
+            EditorGUILayout.BeginHorizontal();
+            
+            if (GUILayout.Button("Circle", GUILayout.Height(25)))
+            {
+                _numberOfVectors = 8;
+                _vectorSpread = 360f;
+                _startAngle = 0f;
+                GenerateEvenVectors();
+            }
+            
+            if (GUILayout.Button("Forward Right", GUILayout.Height(25)))
+            {
+                GenerateForwardRightPattern();
+            }
+            
+            EditorGUILayout.EndHorizontal();
+            
+            EditorGUILayout.EndVertical();
+            
+            EditorGUILayout.Space();
+            
+            // Behavior-specific options
+            EditorGUILayout.BeginVertical(EditorStyles.helpBox);
+            EditorGUILayout.LabelField($"Behavior-Specific Settings ({_currentBehavior.BehaviorType})", EditorStyles.boldLabel);
+            
+            // Additional parameters based on behavior type
+            switch (_currentBehavior.BehaviorType)
+            {
+                case BehaviorType.Seek:
+                // case BehaviorType.Flee:
+                case BehaviorType.Arrival:
+                    _currentBehavior.ArrivalRadius = EditorGUILayout.FloatField("Arrival Radius", _currentBehavior.ArrivalRadius);
+                    _currentBehavior.SlowingRadius = EditorGUILayout.FloatField("Slowing Radius", _currentBehavior.SlowingRadius);
+                    break;
+                
+                case BehaviorType.Separation:
+                case BehaviorType.Cohesion:
+                case BehaviorType.Alignment:
+                    _currentBehavior.NeighborRadius = EditorGUILayout.FloatField("Neighbor Radius", _currentBehavior.NeighborRadius);
+                    _currentBehavior.SeparationRadius = EditorGUILayout.FloatField("Separation Radius", _currentBehavior.SeparationRadius);
+                    break;
+                
+                case BehaviorType.Attack:
+                    EditorGUILayout.HelpBox("Attack vectors determine how troops approach and position themselves for attacking enemies.", MessageType.Info);
+                    break;
+                
+                case BehaviorType.Flee:
+                    EditorGUILayout.HelpBox("Flee vectors determine escape directions when troops are in danger.", MessageType.Info);
+                    break;
+            }
+            
+            EditorGUILayout.EndVertical();
+            
+            EditorGUILayout.EndVertical();
         }
         
         private void DrawVectorArea()
@@ -595,6 +732,182 @@ namespace IslandDefense.Troops.Editor
                 _onVectorSelected?.Invoke(_currentBehavior, _selectedVectorIndex);
                 _onBehaviorModified?.Invoke(_currentBehavior);
             }
+        }
+        
+        private void GenerateEvenVectors()
+        {
+            if (_currentBehavior.directionVectors == null)
+            {
+                _currentBehavior.directionVectors = new List<DirectionVectorConfig>();
+            }
+            
+            // Confirm clearing existing vectors if any
+            if (_currentBehavior.directionVectors.Count > 0)
+            {
+                bool clear = EditorUtility.DisplayDialog(
+                    "Clear Existing Vectors", 
+                    "Do you want to clear existing vectors before generating new ones?", 
+                    "Yes", "No");
+                    
+                if (clear)
+                {
+                    _currentBehavior.directionVectors.Clear();
+                }
+            }
+            
+            // Create evenly distributed vectors
+            float angleStep = _vectorSpread / _numberOfVectors;
+            float currentAngle = _startAngle;
+            float equalProbability = 1.0f / _numberOfVectors;
+            
+            for (int i = 0; i < _numberOfVectors; i++)
+            {
+                // Convert angle to vector
+                float radians = currentAngle * Mathf.Deg2Rad;
+                Vector3 direction = new Vector3(Mathf.Sin(radians), 0, Mathf.Cos(radians));
+                
+                DirectionVectorConfig newVector = new DirectionVectorConfig
+                {
+                    direction = direction.normalized,
+                    probability = equalProbability
+                };
+                
+                _currentBehavior.directionVectors.Add(newVector);
+                currentAngle += angleStep;
+            }
+            
+            _selectedVectorIndex = 0;
+            _onVectorSelected?.Invoke(_currentBehavior, _selectedVectorIndex);
+            _onBehaviorModified?.Invoke(_currentBehavior);
+        }
+        
+        private void GenerateForwardVector()
+        {
+            if (_currentBehavior.directionVectors == null)
+            {
+                _currentBehavior.directionVectors = new List<DirectionVectorConfig>();
+            }
+            
+            // Confirm clearing existing vectors if any
+            if (_currentBehavior.directionVectors.Count > 0)
+            {
+                bool clear = EditorUtility.DisplayDialog(
+                    "Clear Existing Vectors", 
+                    "Do you want to clear existing vectors before generating new pattern?", 
+                    "Yes", "No");
+                    
+                if (clear)
+                {
+                    _currentBehavior.directionVectors.Clear();
+                }
+            }
+            
+            // Create one forward vector
+            DirectionVectorConfig newVector = new DirectionVectorConfig
+            {
+                direction = new Vector3(0, 0, 1), // Forward
+                probability = 1.0f
+            };
+            
+            _currentBehavior.directionVectors.Add(newVector);
+            _selectedVectorIndex = 0;
+            _onVectorSelected?.Invoke(_currentBehavior, _selectedVectorIndex);
+            _onBehaviorModified?.Invoke(_currentBehavior);
+        }
+        
+        private void GenerateForwardFan()
+        {
+            if (_currentBehavior.directionVectors == null)
+            {
+                _currentBehavior.directionVectors = new List<DirectionVectorConfig>();
+            }
+            
+            // Confirm clearing existing vectors if any
+            if (_currentBehavior.directionVectors.Count > 0)
+            {
+                bool clear = EditorUtility.DisplayDialog(
+                    "Clear Existing Vectors", 
+                    "Do you want to clear existing vectors before generating new pattern?", 
+                    "Yes", "No");
+                    
+                if (clear)
+                {
+                    _currentBehavior.directionVectors.Clear();
+                }
+            }
+            
+            // Create a forward fan with 3 vectors
+            // Center vector (highest probability)
+            _currentBehavior.directionVectors.Add(new DirectionVectorConfig
+            {
+                direction = new Vector3(0, 0, 1), // Forward
+                probability = 0.6f
+            });
+            
+            // Left vector
+            _currentBehavior.directionVectors.Add(new DirectionVectorConfig
+            {
+                direction = new Vector3(-0.3f, 0, 0.95f).normalized, // Forward-left
+                probability = 0.2f
+            });
+            
+            // Right vector
+            _currentBehavior.directionVectors.Add(new DirectionVectorConfig
+            {
+                direction = new Vector3(0.3f, 0, 0.95f).normalized, // Forward-right
+                probability = 0.2f
+            });
+            
+            _selectedVectorIndex = 0;
+            _onVectorSelected?.Invoke(_currentBehavior, _selectedVectorIndex);
+            _onBehaviorModified?.Invoke(_currentBehavior);
+        }
+        
+        private void GenerateForwardRightPattern()
+        {
+            if (_currentBehavior.directionVectors == null)
+            {
+                _currentBehavior.directionVectors = new List<DirectionVectorConfig>();
+            }
+            
+            // Confirm clearing existing vectors if any
+            if (_currentBehavior.directionVectors.Count > 0)
+            {
+                bool clear = EditorUtility.DisplayDialog(
+                    "Clear Existing Vectors", 
+                    "Do you want to clear existing vectors before generating new pattern?", 
+                    "Yes", "No");
+                    
+                if (clear)
+                {
+                    _currentBehavior.directionVectors.Clear();
+                }
+            }
+            
+            // Forward vector (highest probability)
+            _currentBehavior.directionVectors.Add(new DirectionVectorConfig
+            {
+                direction = new Vector3(0, 0, 1), // Forward
+                probability = 0.5f
+            });
+            
+            // Slightly right
+            _currentBehavior.directionVectors.Add(new DirectionVectorConfig
+            {
+                direction = new Vector3(0.3f, 0, 0.95f).normalized, // Forward-right
+                probability = 0.3f
+            });
+            
+            // Hard right
+            _currentBehavior.directionVectors.Add(new DirectionVectorConfig
+            {
+                direction = new Vector3(0.7f, 0, 0.7f).normalized, // Right diagonal
+                probability = 0.2f
+            });
+            
+            _selectedVectorIndex = 0;
+            _onVectorSelected?.Invoke(_currentBehavior, _selectedVectorIndex);
+            _onBehaviorModified?.Invoke(_currentBehavior);
         }
         
         private float DistancePointLine(Vector2 point, Vector2 lineStart, Vector2 lineEnd)

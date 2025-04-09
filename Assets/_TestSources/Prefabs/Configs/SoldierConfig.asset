@@ -185,12 +185,14 @@ MonoBehaviour:
     Weight: 1
     Probability: 0.95
     directionVectors:
-    - direction: {x: 0, y: 0, z: 0}
-      probability: 0
-    - direction: {x: 0, y: 0, z: 0}
-      probability: 0
-    - direction: {x: 0, y: 0, z: 0}
-      probability: 0
+    - direction: {x: 0.02, y: 0, z: 1}
+      probability: 0.311
+    - direction: {x: -0.30113137, y: 0, z: 0.95358264}
+      probability: 0.2
+    - direction: {x: 0.30113137, y: 0, z: 0.95358264}
+      probability: 0.2
+    - direction: {x: 1.39, y: 0, z: 1}
+      probability: 0.5
     ArrivalRadius: 1
     SlowingRadius: 5
     NeighborRadius: 5
