@@ -23,4 +23,177 @@ MonoBehaviour:
   moveSpeed: 5
   rotationSpeed: 10
   maxSteeringForce: 10
-  behaviors: []
+  behaviors:
+  - name: SeekBehavior
+    BehaviorType: 0
+    Weight: 1
+    Probability: 0.5
+    directionVectors:
+    - direction: {x: 0, y: 0, z: 1}
+      probability: 0.5
+    - direction: {x: 0.5895509, y: 0, z: -0.8077312}
+      probability: 0.5
+    - direction: {x: 0.96639884, y: 0, z: -0.25704727}
+      probability: 0.5
+    ArrivalRadius: 1
+    SlowingRadius: 5
+    NeighborRadius: 5
+    SeparationRadius: 2
+    LookAheadDistance: 5
+    ObstacleLayer:
+      serializedVersion: 2
+      m_Bits: 0
+  - name: FleeBehavior
+    BehaviorType: 1
+    Weight: 1
+    Probability: 0.5
+    directionVectors:
+    - direction: {x: 0, y: 0, z: 1}
+      probability: 1
+    ArrivalRadius: 1
+    SlowingRadius: 5
+    NeighborRadius: 5
+    SeparationRadius: 2
+    LookAheadDistance: 5
+    ObstacleLayer:
+      serializedVersion: 2
+      m_Bits: 0
+  - name: ArrivalBehavior
+    BehaviorType: 2
+    Weight: 1
+    Probability: 0.5
+    directionVectors: []
+    ArrivalRadius: 1
+    SlowingRadius: 5
+    NeighborRadius: 5
+    SeparationRadius: 2
+    LookAheadDistance: 5
+    ObstacleLayer:
+      serializedVersion: 2
+      m_Bits: 0
+  - name: SeparationBehavior
+    BehaviorType: 3
+    Weight: 1
+    Probability: 0.5
+    directionVectors: []
+    ArrivalRadius: 1
+    SlowingRadius: 5
+    NeighborRadius: 5
+    SeparationRadius: 2
+    LookAheadDistance: 5
+    ObstacleLayer:
+      serializedVersion: 2
+      m_Bits: 0
+  - name: CohesionBehavior
+    BehaviorType: 4
+    Weight: 1
+    Probability: 0.5
+    directionVectors: []
+    ArrivalRadius: 1
+    SlowingRadius: 5
+    NeighborRadius: 5
+    SeparationRadius: 2
+    LookAheadDistance: 5
+    ObstacleLayer:
+      serializedVersion: 2
+      m_Bits: 0
+  - name: AlignmentBehavior
+    BehaviorType: 5
+    Weight: 1
+    Probability: 0.5
+    directionVectors: []
+    ArrivalRadius: 1
+    SlowingRadius: 5
+    NeighborRadius: 5
+    SeparationRadius: 2
+    LookAheadDistance: 5
+    ObstacleLayer:
+      serializedVersion: 2
+      m_Bits: 0
+  - name: ObstacleAvoidanceBehavior
+    BehaviorType: 6
+    Weight: 1
+    Probability: 0.5
+    directionVectors: []
+    ArrivalRadius: 1
+    SlowingRadius: 5
+    NeighborRadius: 5
+    SeparationRadius: 2
+    LookAheadDistance: 5
+    ObstacleLayer:
+      serializedVersion: 2
+      m_Bits: 0
+  - name: PathFollowingBehavior
+    BehaviorType: 7
+    Weight: 1
+    Probability: 0.5
+    directionVectors: []
+    ArrivalRadius: 1
+    SlowingRadius: 5
+    NeighborRadius: 5
+    SeparationRadius: 2
+    LookAheadDistance: 5
+    ObstacleLayer:
+      serializedVersion: 2
+      m_Bits: 0
+  - name: AttackBehavior
+    BehaviorType: 8
+    Weight: 1
+    Probability: 0.95
+    directionVectors:
+    - direction: {x: 0, y: 0, z: 1}
+      probability: 1
+    ArrivalRadius: 1
+    SlowingRadius: 5
+    NeighborRadius: 5
+    SeparationRadius: 2
+    LookAheadDistance: 5
+    ObstacleLayer:
+      serializedVersion: 2
+      m_Bits: 0
+  - name: DefenseBehavior
+    BehaviorType: 9
+    Weight: 1
+    Probability: 0.5
+    directionVectors:
+    - direction: {x: 0, y: 0, z: 1}
+      probability: 1
+    ArrivalRadius: 1
+    SlowingRadius: 5
+    NeighborRadius: 5
+    SeparationRadius: 2
+    LookAheadDistance: 5
+    ObstacleLayer:
+      serializedVersion: 2
+      m_Bits: 0
+  - name: FearBehavior
+    BehaviorType: 10
+    Weight: 1
+    Probability: 0.5
+    directionVectors:
+    - direction: {x: -1, y: 0, z: -0.00000004371139}
+      probability: 0.125
+    - direction: {x: -0.9238795, y: 0, z: 0.38268343}
+      probability: 0.125
+    - direction: {x: -0.70710677, y: 0, z: 0.70710677}
+      probability: 0.125
+    - direction: {x: -0.38268346, y: 0, z: 0.9238795}
+      probability: 0.125
+    - direction: {x: 0, y: 0, z: 1}
+      probability: 0.125
+    - direction: {x: 0.38268346, y: 0, z: 0.9238795}
+      probability: 0.125
+    - direction: {x: 0.70710677, y: 0, z: 0.70710677}
+      probability: 0.125
+    - direction: {x: 0.9742901, y: 0, z: -0.2252971}
+      probability: 0.125
+    - direction: {x: 0.9709491, y: 0, z: -0.23928604}
+      probability: 0.5
+    ArrivalRadius: 1
+    SlowingRadius: 5
+    NeighborRadius: 5
+    SeparationRadius: 2
+    LookAheadDistance: 5
+    ObstacleLayer:
+      serializedVersion: 2
+      m_Bits: 0

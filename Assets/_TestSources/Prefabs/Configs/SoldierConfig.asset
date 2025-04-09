@@ -30,41 +30,41 @@ MonoBehaviour:
     Probability: 0.177
     directionVectors:
     - direction: {x: -0.9238795, y: 0, z: 0.38268343}
-      probability: 0.125
+      probability: 0.013071896
     - direction: {x: -0.70710677, y: 0, z: 0.70710677}
-      probability: 0.125
+      probability: 0.013071896
     - direction: {x: -0.38268346, y: 0, z: 0.9238795}
-      probability: 0.125
+      probability: 0.013071896
     - direction: {x: 0, y: 0, z: 1}
-      probability: 0.125
+      probability: 0.013071896
     - direction: {x: 0.38268346, y: 0, z: 0.9238795}
-      probability: 0.125
+      probability: 0.013071896
     - direction: {x: 0.70710677, y: 0, z: 0.70710677}
-      probability: 0.125
+      probability: 0.013071896
     - direction: {x: 0.9238795, y: 0, z: 0.38268343}
-      probability: 0.125
+      probability: 0.013071896
     - direction: {x: 0.988281, y: 0, z: -0.1526454}
-      probability: 0.5
+      probability: 0.052287582
     - direction: {x: 0.9901669, y: 0, z: -0.13989113}
-      probability: 0.5
+      probability: 0.052287582
     - direction: {x: 0.9999551, y: 0, z: -0.009478248}
-      probability: 0.5
+      probability: 0.052287582
     - direction: {x: 0.99011075, y: 0, z: 0.14028817}
-      probability: 0.5
+      probability: 0.052287582
     - direction: {x: -0.9683671, y: 0, z: 0.24952969}
-      probability: 0.5
+      probability: 0.052287582
     - direction: {x: -0.9683671, y: 0, z: 0.24952969}
-      probability: 0.5
+      probability: 0.052287582
     - direction: {x: -0.9121469, y: 0, z: -0.40986338}
-      probability: 0.5
+      probability: 0.052287582
     - direction: {x: -0.9995082, y: 0, z: 0.03135712}
-      probability: 0.5
+      probability: 0.052287582
     - direction: {x: 0.80791324, y: 0, z: -0.5893014}
-      probability: 0.5
+      probability: 0.052287582
     - direction: {x: 39.04, y: 0, z: 0.44794777}
-      probability: 0.5
+      probability: 0.052287582
     - direction: {x: -0.7188197, y: 0, z: -0.6951965}
-      probability: 0.5
+      probability: 0.052287582
     ArrivalRadius: 1
     SlowingRadius: 0
     NeighborRadius: 0

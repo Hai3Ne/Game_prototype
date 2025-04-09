@@ -5,101 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28c3e41f-69dd-4ce5-a167-bb87a2aff527" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Core/GameManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Core/GameManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Core/InputManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Core/InputManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Editor.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Editor/BehaviorEditorWindow.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Editor/BehaviorEditorWindow.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/Base.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/Base/TroopBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/Base/TroopBase.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/Base/TroopController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/Base/TroopController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/Base/TroopView.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/Base/TroopView.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/Behaviors.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/Behaviors/ArrivalBehavior.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/Behaviors/ArrivalBehavior.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/Behaviors/AttackBehavior.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/Behaviors/AttackBehavior.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/Behaviors/FearBehavior.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/Behaviors/FearBehavior.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/Behaviors/FleeBehavior.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/Behaviors/FleeBehavior.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/Behaviors/SeekBehavior.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/Behaviors/SeekBehavior.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/Behaviors/SeparationBehavior.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/Behaviors/SeparationBehavior.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/Behaviors/SteeringBehavior.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/Behaviors/SteeringBehavior.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/Enemies.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/Enemies/EnemyController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/Enemies/EnemyController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/Formations.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/Formations/FormationGrid.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/Formations/FormationGrid.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/Formations/SquadFormation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/Formations/SquadFormation.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/ScriptableObjects.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/ScriptableObjects/TroopConfigSO.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/ScriptableObjects/TroopConfigSO.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/StateMachine.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/StateMachine/ATroopState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/StateMachine/ATroopState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/StateMachine/TroopAttackState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/StateMachine/TroopAttackState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/StateMachine/TroopDeadState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/StateMachine/TroopDeadState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/StateMachine/TroopDefendState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/StateMachine/TroopDefendState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/StateMachine/TroopFleeState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/StateMachine/TroopFleeState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/StateMachine/TroopIdleState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/StateMachine/TroopIdleState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/StateMachine/TroopMoveState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/StateMachine/TroopMoveState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/StateMachine/TroopStateMachine.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Troops/StateMachine/TroopStateMachine.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Editor/VectorEditorWindow.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Editor/VectorEditorWindow.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Game_prototype/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game_prototype/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj.DotSettings" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Materials.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_TestSources/Materials.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Materials/Blue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_TestSources/Materials/Blue.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Materials/Blue.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_TestSources/Materials/Blue.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Materials/Red.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_TestSources/Materials/Red.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Materials/Red.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_TestSources/Materials/Red.mat.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Prefabs/EnemyPrefab.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Prefabs/EnemyPrefab.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Prefabs/SquadPrefab.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Prefabs/SquadPrefab.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Prefabs/TroopPrefab.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Prefabs/TroopPrefab.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Scripts/AI.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Scripts/AI/EnemyTroop.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Scripts/AI/EnemyTroop.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Core/SteeringBehavior.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Core/SteeringBehavior/ArrivalBehavior.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Core/SteeringBehavior/ArrivalBehavior.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Core/SteeringBehavior/SeekBehavior.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Core/SteeringBehavior/SeekBehavior.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Core/SteeringBehavior/SeparationBehavior.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Core/SteeringBehavior/SeparationBehavior.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Core/SteeringBehavior/SteeringBehavior.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Core/SteeringBehavior/SteeringBehavior.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Core/TroopBase.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Core/TroopBase.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Formations.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Formations/Squad.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Formations/Squad.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Managers.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Managers/GameManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Managers/GameManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Map.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Map.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Map/MapManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Map/MapManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Map/MapNode.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Map/MapNode.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Prefabs/Configs/ArcherConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_TestSources/Prefabs/Configs/ArcherConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Prefabs/Configs/SoldierConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_TestSources/Prefabs/Configs/SoldierConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Editor/BehaviorEditorWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Editor/BehaviorEditorWindow.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +100,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1744167558103</updated>
-      <workItem from="1744167559328" duration="7682000" />
+      <workItem from="1744167559328" duration="9262000" />
     </task>
     <servers />
   </component>
