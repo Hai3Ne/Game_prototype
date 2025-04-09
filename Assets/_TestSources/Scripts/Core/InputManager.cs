@@ -12,6 +12,7 @@ public class InputManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private Camera mainCamera;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private TroopCreator troopCreator;
         
     [Header("Input Settings")]
     [SerializeField] private LayerMask groundLayer;
@@ -45,7 +46,7 @@ public class InputManager : MonoBehaviour
     private void Update()
     {
         // Camera Controls
-        HandleCameraMovement();
+        // HandleCameraMovement();
             
         // Mouse Controls
         HandleMouseInput();
@@ -216,6 +217,10 @@ public class InputManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             CycleFormation();
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            troopCreator.CreateSoldierSquad();
         }
             
         // Pause

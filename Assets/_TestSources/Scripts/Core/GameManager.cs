@@ -39,6 +39,7 @@ namespace IslandDefense.Core
         [Header("Formation Grid")]
         [SerializeField] private FormationGrid formationGrid;
         
+        
         // Các biến nội bộ
         private int currentWave = 0;
         private float nextSpawnTime = 0f;

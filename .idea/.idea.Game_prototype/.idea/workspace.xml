@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28c3e41f-69dd-4ce5-a167-bb87a2aff527" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/TroopCreator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/TroopCreator.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Game_prototype/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game_prototype/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Prefabs/Configs/ArcherConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_TestSources/Prefabs/Configs/ArcherConfig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Prefabs/Configs/SoldierConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_TestSources/Prefabs/Configs/SoldierConfig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Editor/BehaviorEditorWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Editor/BehaviorEditorWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Editor/VectorEditorWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Editor/VectorEditorWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainGame_2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainGame_2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Core/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Core/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Core/InputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_TestSources/Scripts/Core/InputManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +100,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1744167558103</updated>
-      <workItem from="1744167559328" duration="10668000" />
+      <workItem from="1744167559328" duration="12209000" />
     </task>
     <servers />
   </component>
